@@ -1,23 +1,20 @@
-package com.rxjava.githubmvvmrxjavakoin.ui.users
+package com.vshum.turbogum.ui.liners
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.vshum.turbogum.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import com.rxjava.githubmvvmrxjavakoin.databinding.ActivityMainBinding
-import com.rxjava.githubmvvmrxjavakoin.domain.entities.ProfileEntity
-import com.rxjava.githubmvvmrxjavakoin.domain.entities.UsersEntity
-import com.rxjava.githubmvvmrxjavakoin.ui.profile.ProfileActivity
+import com.vshum.turbogum.domain.entities.LinersEntity
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: UsersAdapter
+    private lateinit var adapter: LinersAdapter
 
-    private val viewModel: UsersViewModel by viewModel()
+    private val viewModel: LinersViewModel by viewModel()
 
     private val viewModelDisposable = CompositeDisposable()
 
@@ -46,20 +43,19 @@ class MainActivity : AppCompatActivity() {
             viewModel.onRefresh()
         }
         initRecyclerView()
-
         showProgress(false)
     }
 
-    private fun openProfileScreen(user: UsersEntity) {
-        val bundle = Bundle()
-        bundle.putParcelable("profile", user)
-        val intent = Intent(this, ProfileActivity::class.java)
-        intent.putExtras(bundle)
-        startActivity(intent)
+    private fun openProfileScreen(user: LinersEntity) {
+//        val bundle = Bundle()
+//        bundle.putParcelable("profile", user)
+//        val intent = Intent(this, ProfileActivity::class.java)
+//        intent.putExtras(bundle)
+//        startActivity(intent)
     }
 
 
-    private fun showUsers(users: List<UsersEntity>) {
+    private fun showUsers(users: List<LinersEntity>) {
         adapter.setData(users)
     }
 
@@ -73,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapter = UsersAdapter {
+        adapter = LinersAdapter {
             openProfileScreen(it)
         }
         binding.usersRecyclerView.layoutManager = LinearLayoutManager(this)

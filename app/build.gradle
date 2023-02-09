@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.rxjava.githubmvvmrxjavakoin'
+    namespace 'com.vshum.turbogum'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.rxjava.githubmvvmrxjavakoin"
+        applicationId "com.vshum.turbogum"
         minSdk 24
         targetSdk 32
         versionCode 1

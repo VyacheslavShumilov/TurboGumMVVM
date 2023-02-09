@@ -16,14 +16,14 @@
         android:theme="@style/Theme.GitHubMVVMRxJavaKoin"
         tools:targetApi="31">
         <activity
-            android:name=".ui.profile.ProfileActivity"
+            android:name=".ui.liner.ProfileActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.users.MainActivity"
+            android:name=".ui.liners.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

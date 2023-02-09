@@ -1,20 +1,17 @@
-package com.rxjava.githubmvvmrxjavakoin.ui.users
+package com.vshum.turbogum.ui.liners
 
 import androidx.lifecycle.ViewModel
-import com.rxjava.githubmvvmrxjavakoin.domain.entities.ProfileEntity
-import com.rxjava.githubmvvmrxjavakoin.domain.entities.UsersEntity
-import com.rxjava.githubmvvmrxjavakoin.domain.repos.UsersRepo
+import com.vshum.turbogum.domain.entities.LinersEntity
+import com.vshum.turbogum.domain.repos.LinersRepo
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import io.reactivex.rxjava3.subjects.Subject
 
-class UsersViewModel(
-    private val usersRepo: UsersRepo
-) : UsersContract.ViewModel, ViewModel() {
+class LinersViewModel(private val linersRepo: LinersRepo) : LinersContract.ViewModel, ViewModel() {
 
-    override val usersLiveData: Observable<List<UsersEntity>> = BehaviorSubject.create()
+    override val usersLiveData: Observable<List<LinersEntity>> = BehaviorSubject.create()
     override val errorLiveData: Observable<Throwable> = BehaviorSubject.create()
     override val progressLiveData: Observable<Boolean> = BehaviorSubject.create()
     override val openProfileLiveData: Observable<Unit> = BehaviorSubject.create()
@@ -29,7 +26,7 @@ class UsersViewModel(
 
     private fun loadData() {
         progressLiveData.mutable().onNext(true)
-        usersRepo.getUsers()
+        linersRepo.getLiners()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onSuccess = {

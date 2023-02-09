@@ -1,25 +1,25 @@
-package com.rxjava.githubmvvmrxjavakoin.ui.users
+package com.vshum.turbogum.ui.liners
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rxjava.githubmvvmrxjavakoin.domain.entities.UsersEntity
+import com.vshum.turbogum.domain.entities.LinersEntity
 
-class UsersAdapter(private val onItemClickListener: (UsersEntity) -> Unit) :
-    RecyclerView.Adapter<UsersViewHolder>() {
+class LinersAdapter(private val onItemClickListener: (LinersEntity) -> Unit) :
+    RecyclerView.Adapter<LinersViewHolder>() {
 
-    private val data = mutableListOf<UsersEntity>()
+    private val data = mutableListOf<LinersEntity>()
 
     init {
         setHasStableIds(true)
     }
 
-    override fun getItemId(position: Int) = getItem(position).id
+    override fun getItemId(position: Int) = getItem(position).key
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        UsersViewHolder(parent, onItemClickListener)
+        LinersViewHolder(parent, onItemClickListener)
 
-    override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LinersViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
@@ -29,7 +29,7 @@ class UsersAdapter(private val onItemClickListener: (UsersEntity) -> Unit) :
 
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(users: List<UsersEntity>) {
+    fun setData(users: List<LinersEntity>) {
         data.clear()            //предыдущие данные исключаются
         data.addAll(users)      //добавление новых данных
         notifyDataSetChanged()  //уведомление о изменении данных

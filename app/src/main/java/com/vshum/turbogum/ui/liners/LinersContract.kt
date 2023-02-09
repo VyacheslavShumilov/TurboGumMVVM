@@ -1,14 +1,13 @@
-package com.rxjava.githubmvvmrxjavakoin.ui.users
+package com.vshum.turbogum.ui.liners
 
-import com.rxjava.githubmvvmrxjavakoin.domain.entities.ProfileEntity
-import com.rxjava.githubmvvmrxjavakoin.domain.entities.UsersEntity
+import com.vshum.turbogum.domain.entities.LinersEntity
 import io.reactivex.rxjava3.core.Observable
 
-interface UsersContract {
+interface LinersContract {
 
     interface ViewModel {
 
-        val usersLiveData: Observable<List<UsersEntity>>
+        val usersLiveData: Observable<List<LinersEntity>>
         val errorLiveData: Observable<Throwable>
         val progressLiveData: Observable<Boolean>
         val openProfileLiveData: Observable<Unit> // для открытия новой активити

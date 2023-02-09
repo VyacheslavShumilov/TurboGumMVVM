@@ -1,10 +1,7 @@
-package com.rxjava.githubmvvmrxjavakoin
+package com.vshum.turbogum
 
 import android.app.Application
-import android.content.Context
-import com.rxjava.githubmvvmrxjavakoin.data.retrofit.RetrofitUsersRepoImpl
-import com.rxjava.githubmvvmrxjavakoin.di.appModule
-import com.rxjava.githubmvvmrxjavakoin.domain.repos.UsersRepo
+import com.vshum.turbogum.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
